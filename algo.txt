@@ -1,38 +1,39 @@
 Ordinare una pizza
 
-Tu non hai fame?!
-Dopo una lunga giornata passata al pc, ho proprio voglia di concedermi una bella pizza succulenta! 
-Sì, ma quale?
-Fammi dare un occhio al listino… Va beh, è inutile, tanto alla fine ordino sempre la stessa: una classica
-prosciutto e funghi.
-La pizza arriva ancora fumante, chissà se riuscirò a mangiarla tutta!
-Di sicuro se ne avanzo una fetta devo ricordarmi di metterla in frigo, non come l’ultima volta!
+      Tu non hai fame?!
+      Dopo una lunga giornata passata al pc, ho proprio voglia di concedermi una bella pizza succulenta! 
+      Sì, ma quale?
+      Fammi dare un occhio al listino… Va beh, è inutile, tanto alla fine ordino sempre la stessa: una classica
+      prosciutto e funghi.
+
+      La pizza arriva ancora fumante, chissà se riuscirò a mangiarla tutta!
+      Di sicuro se ne avanzo una fetta devo ricordarmi di metterla in frigo, non come l’ultima volta!
 
 
 
 1 - definire se l'utente ha fame.
   1.1 - Se l'utente ha fame, procedere con punto 2
-  1.2 - Se l'utente non ha fame, ritornare al punto 1
+  1.2 - Se l'utente non ha fame, ritornare al punto 1 con delay di 60 minuti.
 
-2 - verificare se l'utente ha almeno €10,00 come saldo disponibile
-  2.1 - Se disponibile , allora procedere al punto 3
+2 - verificare se l'utente ha almeno €10,00 come saldo disponibile (bancomat )
+  2.1 - Se condizione soddisfatta , allora procedere al punto 3
   2.2 - altrimenti, procedere al punto 99
 
 3 - Aprire Browser predefinito e ricercare "pizzerie vicine a me"
-  3.1 - Se utente autorizza posizione, allora ricarichi la pagine con le pizzerie prossime all'utente.
+  3.1 - Se utente autorizza posizione, allora ricaricare la pagina con le pizzerie prossime all'utente.
   3.2 - Se utente non autorizza posizione, allora ricarica la pagina con le pizzerie in ordine di rating.
 
-4 - Entro nel primo link NON VISITATO e cerchi menu e cerco pizza prosciutto e funghi
-  4.1 - Se pizza prosciutto e funghi è presente nel menu , allora procedere al punto 5
-  4.2 - Se pizza prosciutto e funghi non è presente nel menu, allora, ritornare al punto 4
+4 - Entro nel primo link NON VISITATO e cerco menu --> pizza prosciutto e funghi
+  4.1 -  Se menu presente && pizza prosciutto e funghi è contenuta in menu , allora procedere al punto 5
+  4.2 - Se pizza prosciutto e funghi non è presente nel menu || menu assente, allora ritornare al punto 4
 
 5 - Trova all'interno del sito il recapito telefonico && verifica con la pizzeria se disponibile l'asporto && contattare la pizzeria, verificando la disponibilità della prosciutto e funghi.
  5.1 - Se tutte le condizioni sono soddisfatte, allora procedere al punto 6
  5.2 - Altrimenti ritornare al punto 4
 
-6 - Chiedere il costo della pizza
- 6.1 - se costo > di saldo disponibile, ritorna al punto 4 ( max 3 volte,  dopodichè procedere al punto 99 )
- 6.2 - se costo <= di saldo disponibile, procedere con l'ordine, procedere al punto 7.
+6 - Chiedere il costo della pizza e conferma del pagamento con il POS alla consegna
+ 6.1 - se costo > di saldo disponibile || non accettano pagamento POS, ritorna al punto 4 ( max 3 volte,  dopodichè procedere al punto 99 )
+ 6.2 - se costo <= di saldo disponibile && accetta pagamento POS, procedere con l'ordine, poi procedere al punto 7.
 
 7 - Attendere l'arrivo del corriere.
 
@@ -49,4 +50,5 @@ Di sicuro se ne avanzo una fetta devo ricordarmi di metterla in frigo, non come 
 
 99 - Utente Sazio
   99.1 - Se vero , termina programma
-  99.2 - Se falso, alzati e vai a cucinare un risotto di ODER, poi termina programma.
+  99.2 - Se falso, alzati e vai a cucinare un risotto con la ricetta di ODER, poi termina programma.
+
